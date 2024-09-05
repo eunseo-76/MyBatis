@@ -4,7 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e06fcb8-de33-4533-967e-39599d81a90b" name="Changes" comment="" />
+    <list default="true" id="0e06fcb8-de33-4533-967e-39599d81a90b" name="Changes" comment="backup : MyBatis Dynamic Query">
+      <change afterPath="$PROJECT_DIR$/../chap04-mapper-element-lecture-source/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../chap04-mapper-element-lecture-source/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../chap04-mapper-element-lecture-source/src/main/java/com/kenny/common/Template.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../chap04-mapper-element-lecture-source/src/main/java/com/kenny/section01/xmlmapper/Application.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../chap04-mapper-element-lecture-source/src/main/java/com/kenny/section01/xmlmapper/CategoryAndMenuDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../chap04-mapper-element-lecture-source/src/main/java/com/kenny/section01/xmlmapper/CategoryDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../chap04-mapper-element-lecture-source/src/main/java/com/kenny/section01/xmlmapper/ElementTestMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../chap04-mapper-element-lecture-source/src/main/java/com/kenny/section01/xmlmapper/ElementTestService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../chap04-mapper-element-lecture-source/src/main/java/com/kenny/section01/xmlmapper/MenuAndCategoryDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../chap04-mapper-element-lecture-source/src/main/java/com/kenny/section01/xmlmapper/MenuDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../chap04-mapper-element-lecture-source/src/main/resources/com/kenny/section01/xmlmapper/ElementTestMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../chap04-mapper-element-lecture-source/src/main/resources/config/connection-info.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../chap04-mapper-element-lecture-source/src/main/resources/config/mybatis-config.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -53,28 +68,28 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Gradle.chap03-dynamic-sql-lecture-source [:Application.main()].executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Playdata/Desktop/Back-End/MyBatis/chap03-dynamic-sql-lecture-source",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Gradle.chap03-dynamic-sql-lecture-source [:Application.main()].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Playdata/Desktop/Back-End/MyBatis/chap03-dynamic-sql-lecture-source&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.kenny.section02.provider" />
@@ -87,21 +102,6 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Playdata\Desktop\Back-End\MyBatis\chap03-dynamic-sql-lecture-source\src\main\resources\config" />
     </key>
-  </component>
-  <component name="RunManager">
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="chap03-dynamic-sql-lecture-source" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="chap03-dynamic-sql-lecture-source" />
-      <option name="filePath" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -124,7 +124,8 @@
       <workItem from="1725494679409" duration="8000" />
       <workItem from="1725494740310" duration="162000" />
       <workItem from="1725494934621" duration="224000" />
-      <workItem from="1725495170174" duration="9812000" />
+      <workItem from="1725495170174" duration="10362000" />
+      <workItem from="1725505570701" duration="1472000" />
     </task>
     <servers />
   </component>

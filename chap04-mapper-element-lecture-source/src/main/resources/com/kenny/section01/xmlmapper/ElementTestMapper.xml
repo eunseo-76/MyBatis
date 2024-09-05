@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kenny.section01.xmlmapper.ElementTestMapper">
+
+    <!-- 1. <resultMap> 테스트-->
+    <resultMap id="menuResultMap1" type="MenuDTO" autoMapping="false">
+        <id property="menuCode" column="menu_code"/>
+        <result property="menuName" column="menu_name"/>
+        <result property="menuPrice" column="menu_price"/>
+        <!-- 필요한 컬럼만 쓰면 됨. 모든 컬럼 다 쓸 필요 x-->
+    </resultMap>
+
+    <!-- extends로 기존 menuResultMap1을 확장했으므로 추가하고 싶은 속성만 정의한다. -->
+    <resultMap id="menuResultMap2" type="MenuDTO" extends="menuResultMap1">
+        <result property="categoryCode" column="category_code"/>
+        <result property="orderableStatus" column="orderable_status"/>
+    </resultMap>
+
+    <!-- <association> : 1:1 관계의 매핑에서 사용 -->
+    <!-- (1) 별도의 resultMap을 사용 -->
+    <!--id : categoryResultMap-->
+    <resultMap id="categoryResultMap" type="CategoryDTO">
+        <id property="categoryCode" column="category_code"/>
+        <result property="categoryName" column="category_name"/>
+        <result property="refCategoryCode" column="ref_category_code"/>
+    </resultMap>
+
+    <resultMap id="menuAndCategoryResultMap" type="MenuAndCategoryDTO">
+        <id property="menuCode" column="menu_code"/>
+        <result property="menuName" column="menu_name"/>
+        <result property="menuPrice" column="menu_price"/>
+        <result property="orderableStatus" column="orderable_status"/>
+        <association property="category" resultMap="categoryResultMap"/>
+    </resultMap> <!--resultMap : categoryResultMap-->
+        <!-- 클래스에 작성했던 필드명 : category-->
+
+    <!-- (2) <association> 엘리먼트 내에 작성 -->
+    <resultMap id="menuAndCategoryResultMap2" type="MenuAndCategoryDTO">
+        <id property="menuCode" column="menu_code"/>
+        <result property="menuName" column="menu_name"/>
+        <result property="menuPrice" column="menu_price"/>
+        <result property="orderableStatus" column="orderable_status"/>
+        <association property="category" javaType="CategoryDTO">
+            <id property="categoryCode" column="category_code"/>
+            <result property="categoryName" column="category_name"/>
+            <result property="refCategoryCode" column="ref_category_code"/>
+        </association>
+    </resultMap>
+
+    <select id="selectResultMapTest" resultMap="menuAndCategoryResultMap">
+        SELECT
+                a.menu_code,
+                a.menu_name,
+                a.menu_price,
+                a.category_code,
+                a.orderable_status
+                b.category_code,
+                b.category_name,
+                b.ref_category_code
+           FROM tbl_menu a
+           JOIN tbl_category ON (a.category_code = b.category_code)
+          WHERE a.orderable_status = 'Y'
+          ORDER BY a.menu_code
+        <!-- 조회 시 행의 결과를 java 객체로 매핑 -->
+    </select>
+
+    <select id="selectResultMapAssociationTest" resultMap="menuAndCategoryResultMap2">
+        SELECT
+                a.menu_code,
+                a.menu_name,
+                a.menu_price,
+                a.orderable_status,
+                b.category_code,
+                b.category_name,
+                b.ref_category_code
+          FROM tbl_menu a
+          JOIN tbl_category b ON (a.category_code = b.category_code)
+         WHERE a.orderable_status = 'Y'
+        ORDER BY a.menu_code
+    </select>
+
+    <!-- <collection> 엘리먼트는 1:N을 매핑 -->
+    <!-- (1) 별도의 resultMa 사용 -->
+    <resultMap id="categoryAndMenuResultMap" type="CategoryAndMenuDTO">
+        <id property="categoryCode" column="category_code"/>
+        <result property="categoryName" column="category_name"/>
+        <result property="refCategoryCode" column="ref_category_code"/>
+        <collection property="menuList" resultMap="menuResultMap2"/>
+    </resultMap>
+
+    <!-- (2) <collection> 내부에 작성 -->
+    <!-- 별도의 resultMap이 필요 없는 경우 ofType-->
+    <resultMap id="categoryAndMenuResultMap2" type="CategoryAndMenuDTO">
+        <id property="categoryCode" column="category_code"/>
+        <result property="categoryName" column="category_name"/>
+        <result property="refCategoryCode" column="ref_category_code"/>
+        <collection property="menuList" ofType="MenuDTO">
+            <id property="menuCode" column="menu_code"/>
+            <result property="menuName" column="menu_name"/>
+            <result property="menuPrice" column="menu_price"/>
+            <result property="categoryCode" column="category_code"/>
+            <result property="orderableStatus" column="orderable_status"/>
+        </collection>
+    </resultMap>
+
+    <select id="selectResultMapCollectionTest" resultMap="categoryAndMenuResultMap">
+        SELECT
+                a.category_code,
+                a.category_name,
+                a.ref_category_code,
+                b.menu_code,
+                b.menu_name,
+                b.menu_price,
+                b.orderable_status
+          FROM tbl_category a
+          LEFT JOIN tbl_menu b ON (a.category_code = b.category_code)
+         WHERE b.orderable_status ='Y'
+        ORDER BY a.category_code
+
+    </select>
+
+</mapper>
