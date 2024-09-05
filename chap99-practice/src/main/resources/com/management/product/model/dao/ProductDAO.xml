@@ -8,19 +8,32 @@
 
     <!-- 2. ProductDTO type의 resultMap을 설정하세요. -->
     <!-- 조회한 컬럼과 자바 객체의 필드를 매핑(연결)시키기 위해 resultMap 사용 -->
-    <resultMap id="" type="com.management.product.model.dto.ProductDTO">
+    <resultMap id="allProductResultMap" type="com.management.product.model.dto.ProductDTO">
         <id property="productCode" column="PRODUCT_CODE"/>
         <result property="productName" column=""/>
-        <result property="releaseDate" column=""/>
-        <result property="discountRate" column=""/>
-        <result property="salesQuantity" column=""/>
+        <result property="origin_cost" column="ORIGIN_COST"/>
+        <result property="releaseDate" column="RELEASE_DATE"/>
+        <result property="discountRate" column="DISCOUNT_RATE"/>
+        <result property="salesQuantity" column="SALES_QUANTITY"/>
         <result property="stockQuantity" column=""/>
         <result property="categoryCode" column=""/>
         <result property="productStatus" column=""/>
     </resultMap>
     <!-- 3. 전체 목록을 조회하는 쿼리를 작성하세요.
             (쿼리id) selectAllProductList -->
-    <select id="select"
+
+    <select id="selectAllProductList" resultMap="allProductResultMap"/>
+        SELECT
+                PRODUCT_CODE
+              , PRODUCT_NAME
+              , ORIGIN_COST
+              , RELEASE_DATE
+              , DISCOUNT_RATE
+              , SALES_QUANTITY
+              , STOCK_QUANTITY
+              , CATEGORY_CODE
+              , PRODUCT_STATUS
+
 
     <!-- 4. 조건에 따른 목록을 조회하는 쿼리를 작성하세요.
             (쿼리id) selectProductByCondition
