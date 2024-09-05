@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration> <!-- 설정 -->
+    <properties resource="config/connection-info.properties"/>
+
+    <settings>
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>
+
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <mappers> <!-- mapper -->
+        <package name="com.kenny.section01.xml"/>  <!-- 명확한 xml 파일 하나가 아니라 여기 작성한 패키지 하위에 있는 인터페이스를 매퍼로 등록함 -->
+        <package name="com.kenny.section02.provider"/>  <!-- setcion02.provider 하위의 인터페이스들을 mapper로 등록-->
+    </mappers>
+</configuration>

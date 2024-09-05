@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-config.dtd"> <!--DTD-->
+<configuration> <!-- 설정 -->
+    <environments default="development"> <!-- 환경 -->
+        <environment id="development">
+            <transactionManager type="JDBC"/> <!-- 수동 커밋 -->
+            <dataSource type="POOLED"> <!-- 데이터 커넥션의 풀을 만들어 놓고 쓰겠다. -->
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/menudb"/>
+                <property name="username" value="swcamp"/>
+                <property name="password" value="swcamp"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers> <!-- mapper -->
+        <mapper resource="mapper.xml"/>
+    </mappers>
+</configuration>

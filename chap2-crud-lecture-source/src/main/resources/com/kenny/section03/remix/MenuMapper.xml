@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd"> <!--mapper.dtd-->
+
+
+<!--
+    Mapper Interface와 Mapper XML 설정 파일을 연동하는 방법
+    1. 인터페이스와 XML 파일이 동일 패키지에 위치
+    2. 인터페이스와 XML 파일이 동일한 이름
+    3. 인터페이스의 풀네임을 namespace에 저장 (com.kenny.section03.remix.MenuMapper)
+    4. 인터페이스 메소드의 이름과 id가 일치하고, 리턴 타입이 일치하는 쿼리문을 모두 작성
+-->
+<!-- 인터페이스를 이용해 수행해야하는 기능을 추상 메소드로 만듦. 실질적으로 수행하는 쿼리문은 xml 파일에 담고자 함.-->
+
+<mapper namespace="com.kenny.section03.remix.MenuMapper">
+
+    <select id="selectAllMenu" resultType="com.kenny.section03.remix.MenuDTO">
+        SELECT
+        menu_code
+        , menu_name
+        , menu_price
+        , category_code
+        , orderable_status
+        FROM tbl_menu
+        WHERE orderable_status = 'Y'
+        ORDER BY menu_code
+    </select>
+
+    <select id="selectMenuByMenuCode" resultType="com.kenny.section03.remix.MenuDTO" parameterType="_int">
+        SELECT
+        menu_code
+        , menu_name
+        , menu_price
+        , category_code
+        , orderable_status
+        FROM tbl_menu
+        WHERE orderable_status = 'Y'
+        AND menu_code = #{ menuCode }
+    </select>
+
+    <insert id="insertMenu" parameterType="com.kenny.section03.remix.MenuDTO">
+        INSERT INTO
+        tbl_menu(menu_name, menu_price, category_code, orderable_status)
+        VALUES
+        (#{ menuName }, #{ menuPrice }, #{ categoryCode }, 'Y')
+    </insert>
+
+    <update id="updateMenu" parameterType="com.kenny.section03.remix.MenuDTO">
+        UPDATE tbl_menu
+        SET menu_name = #{ menuName },
+        menu_price = #{ menuPrice },
+        category_code = #{ categoryCode }
+        WHERE menu_code = #{ menuCode }
+    </update>
+
+    <delete id="deleteMenu" parameterType="_int">
+        DELETE FROM tbl_menu
+        WHERE menu_code = #{ menuCode }
+    </delete>
+
+</mapper>
