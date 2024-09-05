@@ -10,29 +10,23 @@
     <!-- 조회한 컬럼과 자바 객체의 필드를 매핑(연결)시키기 위해 resultMap 사용 -->
     <resultMap id="allProductResultMap" type="com.management.product.model.dto.ProductDTO">
         <id property="productCode" column="PRODUCT_CODE"/>
-        <result property="productName" column=""/>
+        <result property="productName" column="PRODUCT_NAME"/>
         <result property="origin_cost" column="ORIGIN_COST"/>
         <result property="releaseDate" column="RELEASE_DATE"/>
         <result property="discountRate" column="DISCOUNT_RATE"/>
         <result property="salesQuantity" column="SALES_QUANTITY"/>
-        <result property="stockQuantity" column=""/>
-        <result property="categoryCode" column=""/>
-        <result property="productStatus" column=""/>
+        <result property="stockQuantity" column="STOCK_QUANTITY"/>
+        <result property="categoryCode" column="CATEGORY_CODE"/>
+        <result property="productionStatus" column="PRODUCTION_STATUS"/>
     </resultMap>
     <!-- 3. 전체 목록을 조회하는 쿼리를 작성하세요.
             (쿼리id) selectAllProductList -->
 
-    <select id="selectAllProductList" resultMap="allProductResultMap"/>
+    <select id="selectAllProductList" resultMap="com.management.product.model.dto.ProductDTO">
         SELECT
-                PRODUCT_CODE
-              , PRODUCT_NAME
-              , ORIGIN_COST
-              , RELEASE_DATE
-              , DISCOUNT_RATE
-              , SALES_QUANTITY
-              , STOCK_QUANTITY
-              , CATEGORY_CODE
-              , PRODUCT_STATUS
+                *
+          FROM product_info
+    </select>
 
 
     <!-- 4. 조건에 따른 목록을 조회하는 쿼리를 작성하세요.
@@ -42,14 +36,74 @@
             (참고 2) 판매점 유형별 조회의 경우,
                      '백화점'이면 할인율이 0%인 제품, '아울렛'이면 할인율이 1% 이상인 제품을 조회합니다.
             (참고 3) 이달의 신상품 조희의 경우, 출시일이 이번 달인 제품(예를 들어, 현재 기준이면 2023년 5월 출시 제품)울 조회합니다. -->
+    <select id="selectProductByCondition" resultType="com.management.product.model.dto.productDTO">
+        SELECT
+                PRODUCT_CODE
+              , PRODUCT_NAME
+              , ORIGIN_COST
+              , RELEASE_DATE
+              , DISCOUNT_RATE
+              , SALES_QUANTITY
+              , CATEGORY_CODE
+              , PRODUCTION_STATUS
+          FROM PRODUCT_INFO
 
+        <where>
+            <if test="option == 'productName'">
+                PRODUCT_NAME LIKE CONCAT('%', #{ value }, '%')
+            </if>
+
+            <if test="option == 'salesStore' and value == '백화점'">
+                AND DISCOUNT_RATE = 0
+            </if>
+            <if test="option == 'salesStore' and value == '아울렛'">
+                AND DISCOUNT_RATE >= 1
+            </if>
+
+            <if test = "option == 'newProduct'">
+                // 여기 작성하기
+            </if>
+        </where>
+    </select>
     <!-- 5. 제품 정보를 등록하는 쿼리를 작성하세요.
             (쿼리id) insertProduct -->
+    <insert id="insertProduct">
+        INSERT
+          INTO
+        PRODUCT_INFO
+              (
+                PRODUCT_NAME,
+                ORIGIN_COST,
+                RELEASE_DATE,
+                DISCOUNT_RATE,
+                SALES_QUANTITY,
+                STOCK_QUANTITY,
+                CATEGORY_CODE,
+                PRODUCTION_STATUS
+             )
+        VALUES
+              (
+                #{ productName },
+                #{ originCost },
+                #{ releaseDate },
+                #{ discountRate },
+                #{ salesQuantity },
+                #{ stockQuantity },
+                #{ categoryCode },
+                #{ productionStatus }
+              )
+    </insert>
 
     <!-- 6. 사용자가 수정을 원하는 데이터만 수정하도록 Dynamic Query를 활용한 쿼리를 작성하세요.
             (쿼리id) updateProduct -->
 
+
     <!-- 7. 제품 정보를 삭제하는 쿼리를 작성하세요.
             (쿼리id) deleteProduct -->
-
+    <delete id="deleteProduct">
+        DELETE
+          FROM
+                PRODUCT_INFO
+         WHERE PRODUCT_CODE = #{ productCode }
+    </delete>
 </mapper>

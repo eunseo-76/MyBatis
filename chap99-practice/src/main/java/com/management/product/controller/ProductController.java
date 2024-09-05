@@ -40,13 +40,18 @@ public class ProductController {
     }
 
     public void selectProductByCondition(SearchCondition searchCondition) {
-
         // 3. 조건에 따른 제품 목록을 조회하는 메소드
         //    (조건 1) Service 객체를 호출하여 List<ProductDTO> 타입으로 조건에 따른 제품 목록을 조회하세요.
         //    (조건 2) 제품 목록이 비어있지 않은 경우, SearchCondition과 List<ProductDTO> 객체를 반환하여
         //    　　　　　Print 객체를 통해 조회 조건과 제품 목록을 출력하세요.
         //    (조건 3) 제품 목록이 없는 경우, Print 객체를 통해 조회 결과가 없다는 오류 메세지를 출력하세요.
+        List<ProductDTO> productList = productService.selectProductByCondition(searchCondition);
 
+        if (!productList.isEmpty()) {
+            productPrint.printProductList(productList, searchCondition);
+        } else {
+            productPrint.printErrorMessage("selectList");
+        }
     }
 
     public void registNewProduct(ProductDTO product) {
@@ -59,6 +64,20 @@ public class ProductController {
         //    (조건 3) insert가 정상적으로 수행된 경우, Print 객체를 통해 등록 성공했다는 성공 메세지를 출력하세요.
         //    (조건 4) insert가 정상적으로 수행되지 않은 경우, Print 객체를 통해 등록 실패했다는 오류 메세지를 출력하세요.
 
+        String releaseDate = product.getReleaseDate();
+        String cuttedDate = releaseDate.substring(0, 4) + releaseDate.substring(5, 7) + releaseDate.substring(8, 10);
+
+        product.setReleaseDate(cuttedDate);
+        product.setProductionStatus("Y");
+        product.setSalesQuantity("0");
+
+        boolean result = productService.registNewProduct(product);
+
+        if (result) {
+            productPrint.printSuccessMessage("register");
+        } else {
+            productPrint.printErrorMessage("register");
+        }
     }
 
     public void modifyProductInfo(ProductDTO product) {
@@ -69,6 +88,18 @@ public class ProductController {
         //　  (조건 2) Service 객체를 호출하여 수정을 수행하고, 결과를 boolean 값으로 return 받으세요.
         //    (조건 3) update가 정상적으로 수행된 경우, Print 객체를 통해 수정 성공했다는 성공 메세지를 출력하세요.
         //    (조건 4) update가 정상적으로 수행되지 않은 경우, Print 객체를 통해 수정 실패했다는 오류 메세지를 출력하세요.
+        String releaseDate = product.getReleaseDate();
+        String cuttedDate = releaseDate.substring(0, 4) + releaseDate.substring(5, 7) + releaseDate.substring(8, 10);
+
+        product.setReleaseDate(cuttedDate);
+
+        boolean result = productService.modifyProductInfo(product);
+
+        if (result) {
+            productPrint.printSuccessMessage("modify");
+        } else {
+            productPrint.printErrorMessage("modify");
+        }
 
     }
 
@@ -78,6 +109,12 @@ public class ProductController {
         //    (조건 1) Service 객체를 호출하여 수정을 수행하고, 결과를 boolean 값으로 return 받으세요.
         //    (조건 2) delete가 정상적으로 수행된 경우, Print 객체를 통해 삭제 성공했다는 성공 메세지를 출력하세요.
         //    (조건 3) delete가 정상적으로 수행되지 않은 경우, Print 객체를 통해 삭제 실패했다는 오류 메세지를 출력하세요.
+        boolean result = productService.deleteProduct(parameter);
 
+        if (result) {
+            productPrint.printSuccessMessage("delete");
+        } else {
+            productPrint.printErrorMessage("delete");
+        }
     }
 }

@@ -29,7 +29,16 @@ public class ProductPrint {
     }
 
     public void printSuccessMessage(String successCode) {
-
+        System.out.println("===== Success =====");
+        String successMessage = "";
+        switch (successCode) {
+            case "register":
+                successMessage = "제품 정보 등록이 완료되었습니다.";
+            case "modify":
+                successMessage = "제품 정보 수정이 완료되었습니다.";
+            case "delete":
+                successMessage = "제펨 정보 삭제가 완료되었습니다.";
+        }
         // 3. 성공메시지를 출력하는 메소드
         //    (조건) 성공코드를 전달받아 성공을 알리는 메시지를 출력하세요.
 
@@ -41,6 +50,12 @@ public class ProductPrint {
         switch(errorCode) {
             case "selectList":
                 errorMessage = "메뉴 목록 조회에 실패했습니다.";
+            case "register":
+                errorMessage = "제품 등록에 실패했습니다.";
+            case "modify":
+                errorMessage = "제품 정보 수정에 실패했습니다.";
+            case "delete":
+                errorMessage = "제품 삭제에 실패했습니다.";
         }
         // 4. 에러메시지를 출력하는 메소드
         //    (조건) 에러코드를 전달받아 에러를 알리는 메시지를 출력하세요.

@@ -17,6 +17,7 @@
     
     <mappers>
         <package name="com.management.product.mode.dao"/>
+        <package name="com.management"/>
     </mappers>
 
 </configuration>

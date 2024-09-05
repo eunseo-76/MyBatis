@@ -12,12 +12,12 @@ public class ProductDTO {
     private String salesQuantity;
     private String stockQuantity;
     private String categoryCode;
-    private String productStatus;
+    private String productionStatus;
 
     public ProductDTO() {
     }
 
-    public ProductDTO(String productCode, String productName, String originCost, String releaseDate, String discountRate, String salesQuantity, String stockQuantity, String categoryCode, String productStatus) {
+    public ProductDTO(String productCode, String productName, String originCost, String releaseDate, String discountRate, String salesQuantity, String stockQuantity, String categoryCode, String productionStatus) {
         this.productCode = productCode;
         this.productName = productName;
         this.originCost = originCost;
@@ -26,7 +26,7 @@ public class ProductDTO {
         this.salesQuantity = salesQuantity;
         this.stockQuantity = stockQuantity;
         this.categoryCode = categoryCode;
-        this.productStatus = productStatus;
+        this.productionStatus = productionStatus;
     }
 
     public String getProductCode() {
@@ -93,12 +93,12 @@ public class ProductDTO {
         this.categoryCode = categoryCode;
     }
 
-    public String getProductStatus() {
-        return productStatus;
+    public String getProductionStatus() {
+        return productionStatus;
     }
 
-    public void setProductStatus(String productStatus) {
-        this.productStatus = productStatus;
+    public void setProductionStatus(String productionStatus) {
+        this.productionStatus = productionStatus;
     }
 
     @Override
@@ -112,7 +112,7 @@ public class ProductDTO {
                 ", salesQuantity='" + salesQuantity + '\'' +
                 ", stockQuantity='" + stockQuantity + '\'' +
                 ", categoryCode='" + categoryCode + '\'' +
-                ", productStatus='" + productStatus + '\'' +
+                ", productionStatus='" + productionStatus + '\'' +
                 '}';
     }
 }
