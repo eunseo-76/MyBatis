@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ohgiraffers.transactional.section01.annotation.OrderMapper">
+
+    <insert
+            id="registOrder"
+            parameterType="Order"
+            useGeneratedKeys="true"
+            keyProperty="orderCode"
+    >
+        INSERT INTO
+            tbl_order (order_date, order_time, total_order_price)
+        VALUES
+            (#{ orderDate }, #{ orderTime }, #{ totalOrderPrice })
+    </insert>
+
+    <insert id="registOrderMenu" parameterType="OrderMenu">
+        INSERT INTO
+            tbl_order_menu (order_code, menu_code, order_amount)
+        VALUES
+            (#{ orderCode }, #{ menuCode }, #{ orderAmount })
+    </insert>
+
+</mapper>
