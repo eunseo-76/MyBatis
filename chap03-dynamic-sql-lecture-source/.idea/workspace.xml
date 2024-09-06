@@ -6,7 +6,22 @@
   <component name="ChangeListManager">
     <list default="true" id="0e06fcb8-de33-4533-967e-39599d81a90b" name="Changes" comment="backup : MyBatis Dynamic Query">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../chap04-mapper-element-lecture-source/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../chap04-mapper-element-lecture-source/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../chap99-practice/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../chap99-practice/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../chap99-practice/.idea/dbnavigator.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../chap99-practice/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../chap99-practice/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../chap99-practice/src/main/java/com/common/SearchCondition.java" beforeDir="false" afterPath="$PROJECT_DIR$/../chap99-practice/src/main/java/com/common/SearchCondition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../chap99-practice/src/main/java/com/common/Template.java" beforeDir="false" afterPath="$PROJECT_DIR$/../chap99-practice/src/main/java/com/common/Template.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../chap99-practice/src/main/java/com/management/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/../chap99-practice/src/main/java/com/management/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../chap99-practice/src/main/java/com/management/product/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../chap99-practice/src/main/java/com/management/product/controller/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../chap99-practice/src/main/java/com/management/product/model/dao/ProductDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../chap99-practice/src/main/java/com/management/product/model/dao/ProductDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../chap99-practice/src/main/java/com/management/product/model/dto/ProductDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../chap99-practice/src/main/java/com/management/product/model/dto/ProductDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../chap99-practice/src/main/java/com/management/product/model/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../chap99-practice/src/main/java/com/management/product/model/service/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../chap99-practice/src/main/java/com/management/product/view/ProductMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/../chap99-practice/src/main/java/com/management/product/view/ProductMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../chap99-practice/src/main/java/com/management/product/view/ProductPrint.java" beforeDir="false" afterPath="$PROJECT_DIR$/../chap99-practice/src/main/java/com/management/product/view/ProductPrint.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../chap99-practice/src/main/resources/com/management/product/model/dao/ProductDAO.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../chap99-practice/src/main/resources/com/management/product/model/dao/ProductDAO.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../chap99-practice/src/main/resources/config/connection-info.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../chap99-practice/src/main/resources/config/connection-info.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../chap99-practice/src/main/resources/config/mybatis-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../chap99-practice/src/main/resources/config/mybatis-config.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +78,7 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Playdata/Desktop/Back-End/MyBatis/chap01-connection-config-lecture-source&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Playdata/Desktop/Back-End/MyBatis/chap06-transactional&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -114,7 +129,9 @@
       <workItem from="1725494934621" duration="224000" />
       <workItem from="1725495170174" duration="10362000" />
       <workItem from="1725505570701" duration="6503000" />
-      <workItem from="1725524247966" duration="1786000" />
+      <workItem from="1725524247966" duration="1820000" />
+      <workItem from="1725598842657" duration="149000" />
+      <workItem from="1725601012744" duration="8075000" />
     </task>
     <servers />
   </component>

@@ -83,6 +83,8 @@ public class ProductMenu {
 
         SearchCondition searchCondition = new SearchCondition();
         // 주석을 지우고 searchCondition 검색조건과 검색어를 searchCondition 객체에 setting 하세요.
+        searchCondition.setOption(searchOption);
+        searchCondition.setValue(searchValue);
 
         return searchCondition;
     }
@@ -112,6 +114,7 @@ public class ProductMenu {
 
         ProductDTO productDTO = new ProductDTO();
         // 주석을 지우고 받아온 제품 코드를 productDTO 객체에 setting 하세요.
+        productDTO.setProductCode(productCode);
 
         getProductInfo(productDTO);
 
@@ -121,6 +124,8 @@ public class ProductMenu {
         String productionStatus = sc.nextLine().toUpperCase();
 
         // 주석을 지우고 받아온 활동 상태를 productDTO 객체에 setting 하세요.
+        productDTO.setSalesQuantity(salesQuantity);
+        productDTO.setProductionStatus(productionStatus);
 
         System.out.println("===================================");
 
@@ -144,6 +149,13 @@ public class ProductMenu {
         String discountRate  = sc.nextLine();
 
         // 주석을 지우고 받아온 정보들을 productDTO 객체에 setting 하세요.
+
+        productDTO.setProductName(productName);
+        productDTO.setCategoryCode(categoryCode);
+        productDTO.setOriginCost(originCost);
+        productDTO.setReleaseDate(releaseDate);
+        productDTO.setStockQuantity(stockQuantity);
+        productDTO.setDiscountRate(discountRate);
 
         return productDTO;
     }
